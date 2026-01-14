@@ -1,0 +1,29 @@
+<nav [class.scrolled]="isScrolled">
+    <div class="nav-container">
+        <a class="nav-logo" (click)="scrollTo('home')">CaretEDA</a>
+        <div class="nav-links">
+            <a [class.active]="activeSection === 'home'" (click)="scrollTo('home')">Home</a>
+            <a [class.active]="activeSection === 'contact'" (click)="scrollTo('contact')">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+<section id="home" class="hero-section">
+    <img src="assets/hero-image.jpg" alt="CaretEDA - AI-driven, Silicon-proven, Open-Source enabled" class="hero-image">
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <h3>General Inquiries</h3>
+                <a href="mailto:info@careteda.com">info@careteda.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>Support</h3>
+                <a href="mailto:support@careteda.com">support@careteda.com</a>
+            </div>
+        </div>
+    </div>
+</section>
