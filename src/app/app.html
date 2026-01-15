@@ -1,6 +1,8 @@
 <nav [class.scrolled]="isScrolled">
     <div class="nav-container">
-        <a class="nav-logo" (click)="scrollTo('home')">CaretEDA</a>
+        <a class="nav-logo" (click)="scrollTo('home')">
+            CaretEDA
+        </a>
         <div class="nav-links">
             <a [class.active]="activeSection === 'home'" (click)="scrollTo('home')">Home</a>
             <a [class.active]="activeSection === 'contact'" (click)="scrollTo('contact')">Contact Us</a>
