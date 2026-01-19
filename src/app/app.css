@@ -12,6 +12,7 @@ nav {
 nav.scrolled {
     background-color: rgba(0, 0, 0, 0.9);
     padding: 15px 50px;
+    backdrop-filter: blur(5px);
 }
 
 .nav-container {
@@ -20,6 +21,8 @@ nav.scrolled {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .nav-logo {
@@ -28,6 +31,7 @@ nav.scrolled {
     font-size: 1.5rem;
     cursor: pointer;
     text-decoration: none;
+    letter-spacing: -0.5px;
 }
 
 .nav-links {
@@ -36,17 +40,36 @@ nav.scrolled {
 }
 
 .nav-links a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
     font-weight: 500;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 1rem;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
 }
 
 /* Sections */
@@ -61,150 +84,217 @@ section {
 .hero-section {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     background-color: #000;
     width: 100%;
-    /* Allow height to be determined by image or viewport */
-    min-height: 100vh;
-    padding-top: 0;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 }
 
 .hero-image {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
-    /* Ensures the image fills the screen nicely */
     object-position: center;
     display: block;
 }
 
-/* Logo icon simulation */
-.logo-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-icon svg {
-    display: block;
-    /* Ensure it scales slightly if needed, but fixed size is fine for this hero */
-}
-
-/* Typography matching the image */
-.brand-title {
-    font-size: 5rem;
-    font-weight: 400;
-    /* Looks somewhat thin/regular in the image */
-    margin: 0 0 20px 0;
-    letter-spacing: 2px;
-}
-
-.subtitles {
-    font-size: 2rem;
-    line-height: 1.4;
-}
-
-.subtitles p {
-    margin: 5px 0;
-    font-weight: 400;
-}
-
-.subtitles .highlight {
-    color: #a0cce8;
-    /* A light blue to match/complement the background */
-    font-weight: 500;
-}
-
 /* Contact Section */
 .contact-section {
-    background-color: #111;
+    background-color: #020408;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 60px 20px;
 }
 
 .contact-container {
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
+    width: 100%;
     padding: 20px;
 }
 
 .contact-container h2 {
     font-size: 3rem;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #00d2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .contact-cards {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .contact-card {
-    background: #1a1a1a;
+    background: rgba(0, 20, 30, 0.4);
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 16px;
     min-width: 300px;
-    transition: transform 0.3s ease;
-    border: 1px solid #333;
+    flex: 1;
+    max-width: 400px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 210, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    border-color: #444;
+    transform: translateY(-8px);
+    border-color: rgba(0, 210, 255, 0.4);
+    background: rgba(0, 20, 30, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
 }
 
 .contact-card h3 {
     margin-top: 0;
-    color: #888;
-    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #4aaef1;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.contact-card a {
-    color: #fff;
-    font-size: 1.2rem;
-    text-decoration: none;
+    letter-spacing: 2px;
     font-weight: 600;
 }
 
-.contact-card a:hover {
-    text-decoration: underline;
-    color: #D0E3F0;
+.contact-card a {
+    color: #e0f4ff;
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .diagonal-bg {
-        background: linear-gradient(180deg, #D0E3F0 50%, #000000 50.1%);
+.contact-card a:hover {
+    color: #00d2ff;
+}
+
+/* Responsive Design */
+
+/* Tablet & Mobile Header adjustments */
+@media (max-width: 992px) {
+
+    nav,
+    nav.scrolled {
+        padding: 15px 30px;
     }
 
-    .content-container {
-        flex-direction: column;
+    .contact-container h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+
+    nav,
+    nav.scrolled {
+        padding: 10px 15px;
     }
 
-    .left-side,
-    .right-side {
-        padding: 20px;
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .nav-links a.active {
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .hero-section {
+        min-height: unset;
+        height: 50dvh;
+        background-color: #000;
+        display: flex;
         align-items: center;
-        text-align: center;
+        justify-content: center;
     }
 
-    .chevron {
-        width: 100px;
-        height: 100px;
-        border-width: 15px;
-        margin: 0 0 50px 0;
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
-    .brand-title {
-        font-size: 3rem;
+    .contact-section {
+        padding: 10px 10px;
+        min-height: 50dvh;
+        height: auto;
     }
 
-    .subtitles {
+    .contact-container {
+        padding: 5px;
+    }
+
+    .contact-container h2 {
         font-size: 1.5rem;
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-card {
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .contact-card h3 {
+        font-size: 0.75rem;
+    }
+
+    .contact-card a {
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .nav-container {
+        flex-direction: row;
+        /* Keep row but ensure space */
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    /* Adjust contact cards for very narrow screens if needed */
+    .contact-card {
+        padding: 20px 15px;
+    }
+
+    .contact-card a {
+        font-size: 1rem;
+        word-break: break-all;
     }
 }

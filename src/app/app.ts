@@ -23,17 +23,19 @@ export class App {
       this.isScrolled = scrollPosition > 50;
 
       // Determine active section
-      const homeSection = document.getElementById('home');
       const contactSection = document.getElementById('contact');
 
-      if (homeSection && contactSection) {
-        // Offset for navbar + some buffer
-        const contactOffset = contactSection.offsetTop - (window.innerHeight / 2);
+      if (contactSection) {
+        const rect = contactSection.getBoundingClientRect();
 
-        // Check if we are at the bottom of the page
-        const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
+        // Check if the contact section has moved up into the "active" zone
+        // We switch to contact when its top edge is above the midpoint of the screen
+        // or a fixed header offset
+        const offset = window.innerWidth < 768 ? window.innerHeight * 0.6 : 200;
 
-        if (scrollPosition >= contactOffset || atBottom) {
+        if (scrollPosition < 50) {
+          this.activeSection = 'home';
+        } else if (rect.top <= offset) {
           this.activeSection = 'contact';
         } else {
           this.activeSection = 'home';
