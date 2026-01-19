@@ -6,8 +6,7 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CommonModule],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  templateUrl: './app.html'
 })
 export class App {
   title = 'CaretEDA';

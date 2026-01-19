@@ -1,32 +1,68 @@
-<nav [class.scrolled]="isScrolled">
-    <div class="nav-container">
-        <a class="nav-logo" (click)="scrollTo('home')">
+<nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-5 transition-all duration-300 ease-in-out"
+    [class.bg-black/90]="isScrolled" [class.backdrop-blur-sm]="isScrolled" [class.py-3]="isScrolled">
+    <div class="max-w-[1200px] mx-auto w-full flex justify-between items-center flex-wrap">
+        <a (click)="scrollTo('home')"
+            class="text-white font-bold text-xl md:text-2xl cursor-pointer no-underline tracking-tighter">
             CaretEDA
         </a>
-        <div class="nav-links">
-            <a [class.active]="activeSection === 'home'" (click)="scrollTo('home')">Home</a>
-            <a [class.active]="activeSection === 'contact'" (click)="scrollTo('contact')">Contact Us</a>
+        <div class="flex gap-4 md:gap-8">
+            <a (click)="scrollTo('home')"
+                class="relative text-white/50 no-underline font-medium cursor-pointer transition-all duration-300 text-sm md:text-base group"
+                [class.text-white]="activeSection === 'home'" [class.font-bold]="activeSection === 'home'"
+                [class.!text-white]="activeSection === 'home'">
+                Home
+                <span
+                    class="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-white transition-all duration-300 shadow-[0_0_5px_rgba(255,255,255,0.5)] group-hover:w-full"
+                    [class.w-full]="activeSection === 'home'"></span>
+            </a>
+            <a (click)="scrollTo('contact')"
+                class="relative text-white/50 no-underline font-medium cursor-pointer transition-all duration-300 text-sm md:text-base group"
+                [class.text-white]="activeSection === 'contact'" [class.font-bold]="activeSection === 'contact'"
+                [class.!text-white]="activeSection === 'contact'">
+                Contact Us
+                <span
+                    class="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-white transition-all duration-300 shadow-[0_0_5px_rgba(255,255,255,0.5)] group-hover:w-full"
+                    [class.w-full]="activeSection === 'contact'"></span>
+            </a>
         </div>
     </div>
 </nav>
 
-<section id="home" class="hero-section">
-    <img src="assets/hero-image-logo-text.png" alt="CaretEDA - AI-driven, Silicon-proven, Open-Source enabled"
-        class="hero-image">
+<section id="home"
+    class="relative w-full h-[50dvh] md:h-screen bg-black flex items-center justify-center p-0 m-0 overflow-hidden">
+    <picture class="w-full h-full block">
+        <!-- Mobile Portrait: Use vertical image -->
+        <source media="(orientation: portrait)" srcset="assets/hero-portrait-mobile.png">
+        <!-- Default / Landscape: Use wide image -->
+        <img src="assets/hero-banner-wide-separated.png" alt="CaretEDA - AI-driven, Silicon-proven, Open-Source enabled"
+            class="w-full h-full object-cover object-center block">
+    </picture>
 </section>
 
-<section id="contact" class="contact-section">
-    <div class="contact-container">
-        <h2>Contact Us</h2>
-        <div class="contact-cards">
-            <div class="contact-card">
-                <h3>General Inquiries</h3>
-                <a href="mailto:info@careteda.com">info@careteda.com</a>
+<section id="contact"
+    class="min-h-[50dvh] h-auto md:min-h-screen flex justify-center items-center bg-[#020408] text-white py-14 px-3 md:px-5">
+    <div class="text-center w-full max-w-[1000px] p-1 md:p-5">
+        <h2
+            class="text-2xl md:text-5xl font-bold mb-8 md:mb-14 bg-gradient-to-tr from-white to-[#00d2ff] bg-clip-text text-transparent">
+            Contact Us</h2>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 flex-wrap justify-center items-center">
+
+            <div
+                class="bg-[#00141e]/40 p-5 md:p-10 rounded-2xl w-full md:min-w-[300px] md:flex-1 max-w-full md:max-w-[400px] border border-[#00d2ff]/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#00d2ff]/40 hover:bg-[#00141e]/60 hover:shadow-[0_10px_30px_rgba(0,210,255,0.15)]">
+                <h3 class="mt-0 mb-4 text-[#4aaef1] text-xs md:text-sm uppercase tracking-widest font-semibold">General
+                    Inquiries</h3>
+                <a href="mailto:info@careteda.com"
+                    class="text-[#e0f4ff] text-base md:text-xl no-underline font-medium transition-colors duration-300 hover:text-[#00d2ff] break-all">info@careteda.com</a>
             </div>
-            <div class="contact-card">
-                <h3>Support</h3>
-                <a href="mailto:support@careteda.com">support@careteda.com</a>
+
+            <div
+                class="bg-[#00141e]/40 p-5 md:p-10 rounded-2xl w-full md:min-w-[300px] md:flex-1 max-w-full md:max-w-[400px] border border-[#00d2ff]/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#00d2ff]/40 hover:bg-[#00141e]/60 hover:shadow-[0_10px_30px_rgba(0,210,255,0.15)]">
+                <h3 class="mt-0 mb-4 text-[#4aaef1] text-xs md:text-sm uppercase tracking-widest font-semibold">Support
+                </h3>
+                <a href="mailto:support@careteda.com"
+                    class="text-[#e0f4ff] text-base md:text-xl no-underline font-medium transition-colors duration-300 hover:text-[#00d2ff] break-all">support@careteda.com</a>
             </div>
+
         </div>
     </div>
 </section>
