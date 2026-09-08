@@ -15,6 +15,14 @@ import { RouterModule } from '@angular/router';
 
         <div class="flex flex-col gap-6">
 
+          <a [routerLink]="['/news', '2026-08-release-neevsemi-partnership']"
+             class="order-0 group block no-underline bg-[#0d1f3c] border border-[#2563EB]/50 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[#112244] hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] backdrop-blur-sm">
+            <p class="text-[#2563EB] text-xs uppercase tracking-widest font-semibold mb-3">September 8, 2026</p>
+            <h2 class="text-white font-bold text-lg md:text-2xl leading-snug mb-3 group-hover:text-[#2563EB] transition-colors duration-300">CaretEDA Announces 2026.08 Release and NeevSemi Partnership</h2>
+            <p class="text-white/90 text-sm md:text-base leading-relaxed mb-4">New Spec-to-Netlist&trade; capabilities, Verilator 5.050 and OpenROAD 26Q3 in CaretEDA's open-source EDA stack, and a preferred partnership with NeevSemi.</p>
+            <span class="text-[#2563EB] text-xs font-bold uppercase tracking-widest">Read More &rarr;</span>
+          </a>
+
           <!-- Press release — BIT Mesra Distinguished Alumna Award (August 2026) -->
           <a [routerLink]="['/news', 'bit-mesra-award']"
              class="order-0 group block no-underline bg-[#0d1f3c] border border-[#2563EB]/50 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[#112244] hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] backdrop-blur-sm">

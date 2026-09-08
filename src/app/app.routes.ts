@@ -12,6 +12,7 @@ import { NewsComponent } from './news/news.component';
 import { NewsDetailComponent } from './news/news-detail.component';
 import { NewsDac2026Component } from './news/news-dac2026.component';
 import { NewsBitMesraAwardComponent } from './news/news-bit-mesra-award.component';
+import { NewsNeevsemiPartnershipComponent } from './news/news-neevsemi-partnership.component';
 import { StartupProgramComponent } from './startup-program/startup-program.component';
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'team',            component: TeamComponent },
   { path: 'demos',           component: DemosComponent },
   { path: 'news',            component: NewsComponent },
+  { path: 'news/2026-08-release-neevsemi-partnership', component: NewsNeevsemiPartnershipComponent },
   { path: 'news/dac-2026',   component: NewsDac2026Component },
   { path: 'news/technical-advisors', component: NewsDetailComponent },
   { path: 'news/bit-mesra-award', component: NewsBitMesraAwardComponent },
